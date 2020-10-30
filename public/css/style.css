@@ -1,0 +1,27 @@
+/* --- Variables --- */
+:root{
+    --primary-color: rgba(195, 25, 30, 1);
+    --black: rgba(0, 0, 0, 1);
+}
+
+.navbar a {
+    color: var(--black);
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 70px;
+}
+
+.active a.nav-link {
+    color: var(--primary-color);
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+ul.navbar-nav li{
+    margin-left: 25px;
+    margin-right: 25px;
+}
