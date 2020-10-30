@@ -1,34 +1,18 @@
-@extends('layout')
+@include('layout.header')
 
-@section('navbar')
-            <nav class="navbar navbar-expand-lg bg-white">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="container">
-                    <a class="navbar-brand" href="#!">
-                        <img src="{{ URL::asset('images/B8_Logo.svg') }}">
-                    </a>
+        <title>B8 | Shop</title>
+    </head>
+    <body class="font-primary">
 
-                    <div class="collapse navbar-collapse" id="navbarToggler">
-                            <ul class="navbar-nav ml-auto text-uppercase">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#!">News</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#!">Team</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#!">Partners</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#!">About</a>
-                                </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#!">Shop</a>
-                                </li>
-                            </ul>
-                    </div>
-                </div>
-            </nav>
-@endsection
+        @include('layout.navbar')
+
+        <div class="hero-section d-flex flex-column justify-content-center">
+            <div class="container">
+                <h1 class=" font-weight-bold">Shop</h1>
+                <img class="brush" src="{{ URL::asset('images/brush.png') }}">
+            </div>
+        </div>
+
+        @include('layout.menu')
+
+        @include('layout.footer')
