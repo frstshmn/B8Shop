@@ -24,7 +24,7 @@
                 </a>
             </div>
 
-            <div class="footer d-flex flex-column position-relative mt-5">
+            <div class="footer d-flex flex-column position-relative">
                 <div class="footer-content bg-black">
                     <div class="container d-flex flex-row justify-content-between">
                         <div class='d-flex flex-row align-items-center'>
