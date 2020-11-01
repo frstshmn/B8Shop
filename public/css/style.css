@@ -126,6 +126,19 @@ a.button:hover{
     border: 1px solid var(--primary-color);
 }
 
+.chevron{
+    width: 50px;
+    height: 50px;
+    border:0;
+    border-radius: 100px;
+    color:white;
+    background-color: var(--primary-color);
+}
+
+.rounded-corner{
+    border-radius: 100px;
+}
+
 .hero-section{
     background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0.01%, #FFFFFF 100%), url("../images/hero-image.png");
     height: 400px;
