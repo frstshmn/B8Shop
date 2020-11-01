@@ -25,7 +25,7 @@
                         <div class="card-body text-center">
                             <h4 class="card-title text-uppercase">{{ $item->title }}</h4>
                             <p class="card-price">${{ $item->price }}</p>
-                            <a href="#!" class="button">Buy</a>
+                            <a href="/item/{{ $item->id }}" class="button">Buy</a>
                         </div>
                     </div>
                 </div>
