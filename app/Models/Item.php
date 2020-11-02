@@ -9,7 +9,12 @@ class Item extends Model
 {
     public function photos()
     {
-        return $this->hasMany('App\Models\Photo');
+        return $this->hasMany('App\Models\ItemPhoto');
+    }
+
+    public function sizes()
+    {
+        return $this->hasMany('App\Models\ItemSize');
     }
     use HasFactory;
 }
