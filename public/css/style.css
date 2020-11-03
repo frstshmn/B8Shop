@@ -1,166 +1,269 @@
 /* --- Variables --- */
-    :root{
-        --primary-color: rgba(195, 25, 30, 1);
-        --black: rgba(0, 0, 0, 1);
-    }
+:root {
+    --primary-color: rgba(195, 25, 30, 1);
+    --black: rgba(0, 0, 0, 1);
+}
 /* --- --- --- */
 
 /* --- Colors --- */
 
-    .bg-black{
-        background-color: var(--black);
-    }
+.color-primary{
+    color: var(--primary-color)
+}
+
+.color-black{
+    color: var(--black)
+}
+
+.bg-black {
+    background-color: var(--black);
+}
 
 /* --- --- --- */
 
 /* --- Font --- */
-    .font-primary{
-        font-family: 'Montserrat', sans-serif;
-    }
+.font-primary {
+    font-family: "Montserrat", sans-serif;
+}
 
-    h1{
-        margin: 0;
-        color: var(--black);
-        font-style: normal;
-        font-weight: bold;
-        font-size: 45px;
-    }
+h1 {
+    margin: 0;
+    color: var(--black);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+}
 
-    .follow{
-        color: var(--black);
-        font-style: normal;
-        font-weight: bold;
-        font-size: 40px;
-        line-height: 100%;
-        z-index: 2;
-    }
+.follow {
+    color: var(--black);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 100%;
+    z-index: 2;
+}
 
-    .p-14{
-        font-size: 14px;
-        margin:0;
-    }
+.fs-14 {
+    font-size: 14px;
+    margin: 0;
+}
 
-    .p-18{
-        font-size: 18px;
-    }
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
 /* --- --- --- */
 
 /* --- Navbar --- */
-    .navbar a {
-        color: var(--black);
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 70px;
-    }
+.navbar a {
+    color: var(--black);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 70px;
+}
 
-    .active a.nav-link {
-        color: var(--primary-color);
-    }
+.active a.nav-link {
+    color: var(--primary-color);
+}
 
-    .navbar a:hover {
-        color: var(--primary-color);
-    }
+.navbar a:hover {
+    color: var(--primary-color);
+}
 
-    ul.navbar-nav li{
-        margin-left: 25px;
-        margin-right: 25px;
-    }
+ul.navbar-nav li {
+    margin-left: 25px;
+    margin-right: 25px;
+}
 /* --- --- --- */
 
 /* --- Shapes --- */
-    .brush{
-        margin:0;
-        padding:0;
-        width: 192px;
-        height: 23px;
-    }
-    .brush-transparent{
-        opacity: 0.5;
-        width: 192px;
-        height: 23px;
-        position: absolute;
-        z-index: 1;
-        bottom:0;
-    }
+.brush {
+    margin: 0;
+    padding: 0;
+    width: 192px;
+    height: 23px;
+}
+.brush-transparent {
+    opacity: 0.5;
+    width: 192px;
+    height: 23px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+}
 
-    .big-brush{
-        position: absolute;
-        transform: translateY(-50%);
-    }
+.big-brush {
+    position: absolute;
+    transform: translateY(-50%);
+}
 /* --- --- --- */
 
 /* --- Cards --- */
 
-.card-title{
+.card-title {
     color: var(--black);
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
 }
 
-.card-price{
+.card-price {
     color: var(--primary-color);
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
 }
 
 /* --- --- --- */
 
-.button{
+/* --- Gallery --- */
+
+.gallery{
+    height: 100%;
+}
+
+.gallery-item{
+    opacity: 1;
+    transition: ease-in-out .3s;
+}
+
+.gallery-item:hover{
+    box-shadow: 0px 5px 10px grey;
+    opacity: 0.8;
+}
+
+/* --- --- --- */
+
+.button {
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
     padding: 5px 31px;
-    border:0;
+    border: 0;
     border-radius: 100px;
-    color:white;
+    color: white;
     background-color: var(--primary-color);
 }
 
-a.button:hover{
-    text-decoration:none;
-    color:var(--primary-color);
+a.button:hover {
+    text-decoration: none;
+    color: var(--primary-color);
     background-color: white;
     border: 1px solid var(--primary-color);
 }
 
-.chevron{
-    width: 50px;
-    height: 50px;
-    border:0;
+.chevron {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
     border-radius: 100px;
-    color:white;
     background-color: var(--primary-color);
 }
 
-.rounded-corner{
+.item-info > *{
+    margin-bottom: 20px;
+}
+
+.rounded-corner {
     border-radius: 100px;
 }
 
-.hero-section{
-    background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0) 0.01%, #FFFFFF 100%), url("../images/hero-image.png");
+.hero-section {
+    background: linear-gradient(
+            270deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(255, 255, 255, 0) 0.01%,
+            #ffffff 100%
+        ),
+        url("../images/hero-image.png");
     height: 400px;
 }
 
-.social-icons a{
+.social-icons a {
     margin: 0.5em;
     color: var(--black);
-    font-size:30px;
 }
 
-.social-icons a:hover{
+.social-icons a:hover {
     color: var(--primary-color);
     text-decoration: none;
 }
 
-.footer{
+.footer {
     margin-top: 5em;
 }
 
-.footer-content{
+.footer-content {
     z-index: 3;
 }
 
+/* --- Size selectors --- */
 
+.select-size input {
+    display: none;
+}
+
+label {
+    font-weight: bold;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: 2px solid var(--black);
+    line-height: 50px;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+
+input.size-input:hover + label.size-label{
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+input.size-input:checked + label.size-label{
+    border: 2px solid var(--primary-color);
+    background:var(--primary-color);
+    color: #ffffff;
+}
+
+/* --- --- --- */
+
+
+/* --- Number input --- */
+
+.quantity > *{
+    text-align: center;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    align-items: center;
+}
+
+#quantity{
+    font-weight: bold;
+    border: 2px solid var(--black);
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#quantity::-webkit-outer-spin-button,
+#quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* --- --- --- */

@@ -96,7 +96,7 @@
         <img class="brush-transparent" src="{{ URL::asset('images/brush.png') }}">
     </div>
 
-    <div class="social-icons d-flex justify-content-center">
+    <div class="social-icons fs-30 d-flex justify-content-center">
         <a href="">
             <span class="iconify" data-inline="false" data-icon="fa-brands:instagram"></span>
         </a>
@@ -146,6 +146,8 @@
 
     <!-- User scripts -->
     <script src="{{ URL::asset('js/size_selector.js') }}"></script>
+    <script src="{{ URL::asset('js/number_input.js') }}"></script>
+    <script src="{{ URL::asset('js/gallery.js') }}"></script>
 </body>
 
 </html>
