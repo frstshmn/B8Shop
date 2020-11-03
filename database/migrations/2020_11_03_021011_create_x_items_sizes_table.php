@@ -14,10 +14,13 @@ class CreateXItemsSizesTable extends Migration
     public function up()
     {
         Schema::create('x_items_sizes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('item_id');
-            $table->integer('size_id');
+            $table->id()->autoIncrement()->unique();
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('size_id');
             $table->timestamps();
+
+            $table->foreign('size_id')->references('id')->on('item_sizes');
+            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateXItemsSizesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('x_item_sizes');
+        Schema::dropIfExists('x_items_sizes');
     }
 }

@@ -14,7 +14,7 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement()->unique();
             $table->string('title');
             $table->integer('category_id');
             $table->text('description');

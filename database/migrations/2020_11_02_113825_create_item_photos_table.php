@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemPhotoTable extends Migration
+class CreateItemPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateItemPhotoTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_photo', function (Blueprint $table) {
-            $table->id();
+        Schema::create('item_photos', function (Blueprint $table) {
+            $table->id()->autoIncrement()->unique();
             $table->integer('item_id');
             $table->string('photo_link');
             $table->timestamps();

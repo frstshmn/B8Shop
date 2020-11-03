@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+    use HasFactory;
     public function photos()
     {
         return $this->hasMany('App\Models\ItemPhoto');
@@ -14,7 +15,6 @@ class Item extends Model
 
     public function sizes()
     {
-        return $this->hasMany('App\Models\ItemSize');
+        return $this->belongsToMany(ItemSize::class, 'x_items_sizes', 'item_id','size_id');
     }
-    use HasFactory;
 }

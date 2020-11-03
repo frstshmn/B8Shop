@@ -14,7 +14,7 @@ class CreateItemSizesTable extends Migration
     public function up()
     {
         Schema::create('item_sizes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement()->unique();
             $table->string('title');
             $table->timestamps();
         });

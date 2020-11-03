@@ -18,17 +18,14 @@
             <p class="font-weight-bold fs-14">{{ $item->description }}</p>
 
             <div class="select-size">
-                <input type="radio" name="s-size" class="size" checked/>
-                <input type="radio" name="s-size" class="size"/>
-                <input type="radio" name="s-size" class="size"/>
-                <input type="radio" name="s-size" class="size"/>
-                <input type="radio" name="s-size" class="size"/>
+                @foreach ($item->sizes as $size)
+                    {{ $size->title }}
+                @endforeach
+            </div>
 
-                <label class="size-label">S</label>
-                <label class="size-label">M</label>
-                <label class="size-label">L</label>
-                <label class="size-label">XL</label>
-                <label class="size-label">XXL</label>
+            <div>
+                <p class="font-weight-bold fs-14">{{ $item->consist }}</p>
+                <p class="font-weight-bold fs-14">{{ $item->caring }}</p>
             </div>
         </div>
     </div>
