@@ -6,7 +6,6 @@
 /vendor
 .env
 .env.backup
-.env.examples
 .htpasswds/
 .htpasswd
 .phpunit.result.cache
