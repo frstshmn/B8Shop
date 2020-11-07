@@ -10,7 +10,7 @@
         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
             <div class="gallery">
                 @foreach ($item->photos as $photo)
-                    <img class="w-100 mb-3 gallery-item" src="{{ URL::asset($photo->photo_link) }}" alt="Card image cap">
+                    <img class="w-100 mb-3 gallery-item" src="{{ URL::asset($photo->photo_link) }}" alt="{{ $item->title }}">
                 @endforeach
             </div>
         </div>
@@ -19,31 +19,36 @@
             <p class="card-price fs-30">${{ $item->price }}</p>
             <p class="font-weight-bold fs-14">{{ $item->description }}</p>
 
-            <div>
-                <div class="select-size d-inline-block">
-                    @foreach ($item->sizes as $size)
-                        <input class="size-input" type="radio" name="s-size" id="size-{{ strtolower($size->title) }}" required/>
-                        <label class="size-label" for="size-{{ strtolower($size->title) }}">{{ $size->title }}</label>
-                    @endforeach
-                </div>
-
-                <span class="fs-14 color-primary font-weight-bold d-inline-block ml-3">Size guide</span>
-            </div>
-            <div>
-                <input type="submit" class="button d-inline-block" value="Buy">
-
-                <div class="quantity d-inline-block">
-                    <div id="control-button-minus">
-                        <span class="iconify color-black" data-inline="false"
-                        data-icon="fa-solid:angle-left"></span>
+            <form method="POST" action="/order">
+                @csrf
+                <input type="text" name="item_id" value="{{ $item->id }}" hidden />
+                <input type="text" name="price" value="{{ $item->price }}" hidden />
+                <div>
+                    <div class="select-size d-inline-block">
+                        @foreach ($item->sizes as $size)
+                            <input class="size-input" type="radio" name="size" value="{{ $size->id }}" id="size-{{ strtolower($size->title) }}" required/>
+                            <label class="size-label" for="size-{{ strtolower($size->title) }}">{{ $size->title }}</label>
+                        @endforeach
                     </div>
-                    <input id="quantity" type="number" min="1" max="99" step="1" value="1">
-                    <div id="control-button-plus">
-                        <span class="iconify color-black" data-inline="false"
-                        data-icon="fa-solid:angle-right"></span>
+
+                    <span class="fs-14 color-primary font-weight-bold d-inline-block ml-3">Size guide</span>
+                </div>
+                <div>
+                    <input type="submit" class="button d-inline-block" value="Buy">
+
+                    <div class="quantity d-inline-block">
+                        <div id="control-button-minus">
+                            <span class="iconify color-black" data-inline="false"
+                            data-icon="fa-solid:angle-left"></span>
+                        </div>
+                        <input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="1">
+                        <div id="control-button-plus">
+                            <span class="iconify color-black" data-inline="false"
+                            data-icon="fa-solid:angle-right"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <div class="d-block mt-5">
                 <p class="font-weight-bold fs-14">{{ $item->consist }}</p>

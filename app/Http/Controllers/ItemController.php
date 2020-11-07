@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\ItemSize;
-use App\Models\XItemsSize;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller

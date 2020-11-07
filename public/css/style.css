@@ -56,6 +56,10 @@ h1 {
     font-size: 20px;
 }
 
+.fs-22 {
+    font-size: 22px;
+}
+
 .fs-24 {
     font-size: 24px;
 }
@@ -266,4 +270,45 @@ input.size-input:checked + label.size-label{
   margin: 0;
 }
 
+/* --- --- --- */
+
+/* --- Promocode input --- */
+
+.promocode{
+    height: 50px;
+    border-radius: 10px;
+}
+
+button.promocode{
+    background-color: var(--primary-color);
+    border:0;
+    color: white;
+}
+
+/* --- --- --- */
+
+/* --- Checkout --- */
+
+.checkout-sum>*{
+    margin-bottom:25px;
+}
+.checkout-sum>div>*{
+    margin-bottom:0;
+}
+.checkout-sum>hr{
+    margin-top:0;
+}
+.checkout-sum>.button:last-child{
+    margin-bottom:0 !important;
+}
+
+.checkout-item>div>img{
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+}
+
+.checkout-item-title{
+    margin-left: 30px;
+}
 /* --- --- --- */

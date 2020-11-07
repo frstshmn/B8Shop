@@ -81,7 +81,7 @@
                     <a href="" class="nav-link">Gear</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="" class="nav-link">Delivery</a>
+                    <a href="/order" class="nav-link">Delivery</a>
                 </li>
             </ul>
         </nav>
