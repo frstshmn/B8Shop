@@ -72,31 +72,45 @@ class OrderListController extends Controller
 
         Cookie::queue('basket', json_encode($basket), $storetime);
 
-        response()->json(['success' => 'Item added to basket'], 200);
-        //var_dump($basket);
+        return response()->json(['success' => 'Item added to basket'], 200);
     }
 
     public function update(){
 
     }
 
-    public function edit(Request $request){
 
-        // if(empty($_COOKIE['basket'])){
-        //     return 'You haven`t any items in your basket';
-        // } else {
-        //     $storetime = 120;
-        //     $basket = json_decode(Cookie::get('basket'));
+    /** Adding new item to basket
+     *
+     * @method PUT
+     *
+     * @param operation - Type of operation
+     * @param id - Index of item in $_COOKIE['basket'] array
+     *
+     * @return HTTP_CODE
+     *
+     */
+    public function edit($operation, $id){
+        if(empty($_COOKIE['basket'])){
+            return 'You haven`t any items in your basket';
+        } else {
+            $storetime = 120;
+            $basket = json_decode(Cookie::get('basket'));
 
-        //     if($request->operation == 'decrease'){
-        //         $basket[$request->basket_id]->quantity -= 1;
-        //     }
-        //     elseif($request->operation == 'increase'){
-        //         $basket[$request->basket_id]->quantity += 1;
-        //     }
+            if($operation == 'decrease'){
+                $basket[$id]->quantity -= 1;
+            }
+            elseif($operation == 'increase'){
+                $basket[$id]->quantity += 1;
+            }
+            else{
+                return response()->json(['error' => 'Invalid operation'], 404);
+            }
 
-        //     Cookie::queue('basket', json_encode($basket), $storetime);
-        // }
+            Cookie::queue('basket', json_encode($basket), $storetime);
+
+            return response()->json(['success' => 'Quantity has been changed'], 200);
+        }
     }
 
     /** Delete certain item from COOKIE
@@ -110,7 +124,7 @@ class OrderListController extends Controller
      */
     public function destroy($id){
         if(empty($_COOKIE['basket'])){
-            response()->json(['error' => 'It seems your basket has been wiped out'], 404);
+            return response()->json(['error' => 'It seems your basket has been wiped out'], 404);
         } else {
             $basket = json_decode(Cookie::get('basket'), true);
         }
@@ -123,6 +137,6 @@ class OrderListController extends Controller
 
         Cookie::queue('basket', json_encode($basket), $storetime);
 
-        response()->json(['success' => 'Item deleted from basket'], 200);
+        return response()->json(['success' => 'Item deleted from basket'], 200);
     }
 }

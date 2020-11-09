@@ -42,12 +42,12 @@
                         </div>
                         <div class="col-3 d-flex align-items-center justify-content-center">
                             <div class="quantity d-flex flex-row">
-                                <div id="control-button-minus">
+                                <div id="control-button-minus" onclick="qtyDecrease({{$loop->index}})">
                                     <span class="iconify color-black" data-inline="false"
                                         data-icon="fa-solid:angle-left"></span>
                                 </div>
-                                <input id="quantity" name="quantity" type="number" min="1" max="99" step="1" value="{{ $item->quantity }}">
-                                <div id="control-button-plus">
+                                <input id="quantity" type="number" min="1" max="99" step="1" value="{{ $item->quantity }}" readonly>
+                                <div id="control-button-plus" onclick="qtyIncrease({{$loop->index}})">
                                     <span class="iconify color-black" data-inline="false"
                                         data-icon="fa-solid:angle-right"></span>
                                 </div>
@@ -87,7 +87,7 @@
                 </div>
                 <div>
                     <p class="d-inline-block">Shipping</p>
-                    <p class="d-inline-block float-right color-primary fs-18" id="shipping"></p>
+                    <p class="d-inline-block float-right color-primary fs-18" id="shipping">$7</p>
                 </div>
                 <hr class="w-100">
                 <div>
@@ -99,4 +99,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('additional_scripts')
+    <script src="{{ URL::asset('js/basket.js') }}"></script>
 @endsection
