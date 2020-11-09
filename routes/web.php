@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\ItemController@index');
 
-Route::get('/item/{item}', 'App\Http\Controllers\ItemController@showById');
+Route::get('/item/{id}', 'App\Http\Controllers\ItemController@show');
 
 Route::post('/order', 'App\Http\Controllers\OrderListController@store');
 
 Route::get('/order', 'App\Http\Controllers\OrderListController@show');
+
+Route::delete('/order/{id}', 'App\Http\Controllers\OrderListController@destroy');
