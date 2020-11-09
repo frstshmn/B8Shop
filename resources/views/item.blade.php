@@ -73,3 +73,9 @@
         </div>
     </div>
 @endsection
+
+@section('additional_scripts')
+    <script src="{{ URL::asset('js/number_input.js') }}"></script>
+    <script src="{{ URL::asset('js/size_selector.js') }}"></script>
+    <script src="{{ URL::asset('js/gallery.js') }}"></script>
+@endsection
