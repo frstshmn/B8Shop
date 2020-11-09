@@ -23,7 +23,7 @@ class ItemController extends Controller
      * @param id - identifier of item (received from wildcard)
      * @return view with 'items' argument
     */
-    public function showById($id){
+    public function show($id){
 
         $item = Item::where('id', $id)->first();
 
