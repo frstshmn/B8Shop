@@ -24,3 +24,7 @@ Route::get('/order', 'App\Http\Controllers\OrderListController@show');
 Route::put('/order/{operation}/{id}', 'App\Http\Controllers\OrderListController@edit');
 
 Route::delete('/order/{id}', 'App\Http\Controllers\OrderListController@destroy');
+
+Route::get('/checkout', function (){
+    return view('checkout');
+});

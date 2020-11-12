@@ -50,6 +50,16 @@ h1 {
     z-index: 2;
 }
 
+.fs-9 {
+    font-size: 9px;
+    margin: 0;
+}
+
+.fs-12 {
+    font-size: 12px;
+    margin: 0;
+}
+
 .fs-14 {
     font-size: 14px;
     margin: 0;
@@ -190,10 +200,11 @@ a.button:hover {
 }
 
 .chevron {
-    width: 2em;
-    height: 2em;
+    width: 50px;
+    height: 50px;
     text-align: center;
-    line-height: 2em;
+    font-size: 1em;
+    line-height: 50px;
     border-radius: 100px;
     background-color: var(--primary-color);
 }
@@ -245,7 +256,7 @@ a.button:hover {
     display: none;
 }
 
-label {
+label.size-label {
     font-weight: bold;
     display: inline-block;
     width: 50px;
@@ -344,6 +355,11 @@ button.promocode {
 
 .checkout-item-title {
     margin-left: 30px;
+}
+
+.checkout-input {
+    height: 50px;
+    padding: 0px 16px !important;
 }
 
 
