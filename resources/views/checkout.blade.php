@@ -105,21 +105,27 @@
                 </div>
 
                 <label class="custom-radio">
-                    <input type="radio" name="light" checked>
+                    <input type="radio" name="payment_method" required checked>
                     <span class="text">VISA or MasterCard card</span>
                 </label>
                 <label class="custom-radio">
-                    <input type="radio" name="light">
+                    <input type="radio" name="payment_method" required>
                     <span class="text">Payment at the post office</span>
                 </label>
                 <label class="custom-radio">
-                    <input type="radio" name="light">
+                    <input type="radio" name="payment_method" required>
                     <span class="text">PayPal</span>
                 </label>
 
                 <p class="font-weight-normal fs-9">Your personal data will be used to process your order, support your
                     experience throughout this website, and for other purposes described in our terms and conditions.</p>
-                <p class="font-weight-normal fs-9">I have read and agree to the website terms and conditions *</p>
+
+                <label class="custom-checkbox">
+                    <input type="checkbox" name="conds" required>
+                    <span class="text">
+                        <p class="font-weight-normal fs-9">I have read and agree to the website terms and conditions *</p>
+                    </span>
+                 </label>
                 <div class="button text-uppercase p-3 text-center fs-20">Checkout</div>
             </div>
         </div>
