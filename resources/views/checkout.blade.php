@@ -73,7 +73,7 @@
                 <div class="col-12 px-1">
                     <div class="form-group">
                         <label for="comment" class="m-1 fs-12">Comments / Questions</label>
-                        <textarea class="form-control fs-14 font-weight-bold p-2 checkout-input" id="comment" rows="3"></textarea>
+                        <textarea class="form-control fs-14 font-weight-bold p-2 checkout-input" id="comment" rows="5"></textarea>
                     </div>
                 </div>
             </div>
@@ -104,11 +104,19 @@
                     <p class="d-inline-block float-right color-primary fs-18" id="total_order_price"></p>
                 </div>
 
-                <ul>
-                    <li>VISA or MasterCard card</li>
-                    <li>Payment at the post office</li>
-                    <li>PayPal</li>
-                </ul>
+                <label class="custom-radio">
+                    <input type="radio" name="light" checked>
+                    <span class="text">VISA or MasterCard card</span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="light">
+                    <span class="text">Payment at the post office</span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="light">
+                    <span class="text">PayPal</span>
+                </label>
+
                 <p class="font-weight-normal fs-9">Your personal data will be used to process your order, support your
                     experience throughout this website, and for other purposes described in our terms and conditions.</p>
                 <p class="font-weight-normal fs-9">I have read and agree to the website terms and conditions *</p>
