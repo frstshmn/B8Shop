@@ -28,15 +28,12 @@
                             <label for="country" class="m-1 fs-12">Country</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="country" id="country" required>
                                 <option selected>Ukraine</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="shipping" class="m-1 fs-12">Shipping</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="shipping" id="shipping" required>
-                                <option value="nova_poshta" selected>Nova Poshta</option>
+                                <option value="nova_poshta">Nova Poshta</option>
                                 <option value="ukr_poshta">UkrPoshta</option>
                             </select>
                         </div>
@@ -52,20 +49,13 @@
                         </div>
                         <div class="form-group">
                             <label for="city" class="m-1 fs-12">City</label>
-                            <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" required>
-                                <option selected>Kyiv</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" placeholder="Select city..." required>
+
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="warehouse" class="m-1 fs-12">Warehouse</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="warehouse" id="warehouse" required>
-                                <option selected>#66</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
                             </select>
                         </div>
                     </div>
