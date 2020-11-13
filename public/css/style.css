@@ -5,6 +5,13 @@
     --black: rgba(0, 0, 0, 1);
 }
 
+:active,
+ :hover,
+ :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
 
 /* --- --- --- */
 
@@ -89,6 +96,31 @@
     visibility: visible;
     box-shadow: 0 0 0 1px black;
     border: 2px solid white;
+}
+
+.select2-selection__rendered {
+    line-height: 50px !important;
+    height: 50px !important;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 16px !important;
+}
+
+.select2-results {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.select2-selection__rendered:focus {
+    border: 0;
+}
+
+.select2-container .select2-selection--single {
+    height: 50px !important;
+}
+
+.select2-selection__arrow {
+    height: 50px !important;
 }
 
 
