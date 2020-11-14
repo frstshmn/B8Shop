@@ -11,7 +11,8 @@
             <span class="fs-22 font-weight-bold">Summary</span>
         </div>
     </div>
-    <form>
+    <form action="/checkout" method="POST">
+        @csrf
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                 <div class="row mt-3">
@@ -41,7 +42,7 @@
                     <div class="col-6 px-1">
                         <div class="form-group">
                             <label for="surname" class="m-1 fs-12">Surname</label>
-                            <input type="text" class="form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="second_name" id="surname" required>
+                            <input type="text" class="form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="last_name" id="surname" required>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="m-1 fs-12">Phone</label>
@@ -49,7 +50,7 @@
                         </div>
                         <div class="form-group">
                             <label for="city" class="m-1 fs-12">City</label>
-                            <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" placeholder="Select city..." required>
+                            <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" required>
 
                             </select>
                         </div>
@@ -62,7 +63,7 @@
                     <div class="col-12 px-1">
                         <div class="form-group">
                             <label for="comment" class="m-1 fs-12">Comments / Questions</label>
-                            <textarea class="form-control fs-14 font-weight-bold p-2 checkout-input" id="comment" rows="5"></textarea>
+                            <textarea class="form-control fs-14 font-weight-bold p-2 checkout-input" name="comments" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -94,15 +95,15 @@
                     </div>
 
                     <label class="custom-radio">
-                        <input type="radio" name="payment_method" required checked>
+                        <input type="radio" name="payment_method" value="visa_mastercard" required checked>
                         <span class="text">VISA or MasterCard card</span>
                     </label>
                     <label class="custom-radio">
-                        <input type="radio" name="payment_method" required>
+                        <input type="radio" name="payment_method" value="post_office" required>
                         <span class="text">Payment at the post office</span>
                     </label>
                     <label class="custom-radio">
-                        <input type="radio" name="payment_method" required>
+                        <input type="radio" name="payment_method" value="paypal" required>
                         <span class="text">PayPal</span>
                     </label>
 
@@ -110,7 +111,7 @@
                         experience throughout this website, and for other purposes described in our terms and conditions.</p>
 
                     <label class="custom-checkbox">
-                        <input type="checkbox" name="conds" required>
+                        <input type="checkbox" required>
                         <span class="text">
                             <p class="font-weight-normal fs-9">I have read and agree to the website terms and conditions *</p>
                         </span>

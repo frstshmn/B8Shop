@@ -1,3 +1,7 @@
+// $(document).ready(function() {
+//     $("#city").select2();
+// });
+
 $("#shipping").change(function(e) {
     e.preventDefault();
     if ($(this).val() == 'nova_poshta') {
@@ -48,7 +52,7 @@ $("#city").change(function(e) {
         success: function(response) {
             $("#warehouse").empty();
             $.each(response.data, function(index, value) {
-                $("#warehouse").append("<option value=" + value.Description + ">" + value.Description + "</option>")
+                $("#warehouse").append("<option value=" + value.Ref + ">" + value.Description + "</option>")
             })
         }
     });
