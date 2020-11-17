@@ -482,3 +482,8 @@ button.promocode {
 
 
 /* --- --- --- */
+
+.clickable-row:hover {
+    cursor: pointer;
+    background: #dddddd;
+}

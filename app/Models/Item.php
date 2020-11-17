@@ -17,4 +17,9 @@ class Item extends Model
     {
         return $this->belongsToMany(ItemSize::class, 'x_items_sizes', 'item_id','size_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

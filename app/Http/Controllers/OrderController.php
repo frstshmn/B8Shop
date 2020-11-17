@@ -24,8 +24,6 @@ class OrderController extends Controller
         $order->payment_method = $request->payment_method;
         $order->status = "Pending";
 
-
-
         $order->save();
 
         $basket = json_decode(Cookie::get('basket'));
