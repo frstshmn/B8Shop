@@ -163,6 +163,75 @@
         </div>
     </div>
 
+    <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editItemModalLabel">Edit item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/item/" method="POST" name="editItem">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="id" id="item_id" value="" required hidden>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                {{-- <div class="form-group">
+                                    <input type="file" class="form-control-file" multiple name="photo[]" id="item_photo">
+                                </div> --}}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="title" id="item_title" placeholder="Title" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" min="0" step="any" class="form-control" name="price" id="item_price" placeholder="Price" required>
+                                </div>
+                                <div class="form-group">
+                                    <select name="size[]" id="item_size" class="form-control" multiple>
+                                        @foreach ($item_sizes->unique('title') as $size)
+                                            <option value="{{$size->id}}">{{$size->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="category" id="item_category" class="form-control">
+                                        @foreach ($categories->unique('title') as $category)
+                                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="description" id="item_description" placeholder="Description" col="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="consist" id="item_consist" placeholder="Consist of" col="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="caring" id="item_caring" placeholder="Caring advices" col="3" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="submit" class="btn btn-success" >Save changes</button>
+                    </div>
+                </form>
+                <form action="/item" method="POST" name="deleteItem">
+                    @csrf
+                    @method('delete')
+                    <input type="text" name="id" id="item_id_delete" value="" required hidden>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Iconify, JQuery, Popper.js and Bootstrap.js -->
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -174,7 +243,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <!-- User scripts -->
+    <!-- User scripts -->s
+    <script src="{{ URL::asset('js/admin.js') }}"></script>
 </body>
 
 </html>

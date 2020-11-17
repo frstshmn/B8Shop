@@ -22,7 +22,13 @@ Route::get('/', 'App\Http\Controllers\ItemController@index');
 
 Route::get('/item/{id}', 'App\Http\Controllers\ItemController@show');
 
+Route::get('/item/edit/{id}', 'App\Http\Controllers\ItemController@edit');
+
 Route::post('/item', 'App\Http\Controllers\ItemController@create');
+
+Route::put('/item', 'App\Http\Controllers\ItemController@update');
+
+Route::delete('/item', 'App\Http\Controllers\ItemController@delete');
 
 
 
