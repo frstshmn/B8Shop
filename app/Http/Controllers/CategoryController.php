@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /** Render data to show item
+    /** Render data to show category
      * @method GET
      * @param id - identifier of category (received from wildcard)
      * @return JSON - json encoded item data
@@ -18,7 +18,7 @@ class CategoryController extends Controller
         return json_encode($cat);
     }
 
-    /** Render data to show item
+    /** Create new category
      * @method POST
      * @param request - values to create in categories table
      * @return JSON - json encoded item data
@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $cat->save();
     }
 
-    /** Render data to show item
+    /** Update existing category
      * @method PUT
      * @param request - values to update on categories table
      * @return JSON - json encoded item data
@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $cat->save();
     }
 
-    /** Render data to show item
+    /** Delete partcular category
      * @method DELETE
      * @param request - values to delete in categories table
      * @return JSON - json encoded item data
