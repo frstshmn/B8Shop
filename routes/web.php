@@ -32,6 +32,16 @@ Route::delete('/item', 'App\Http\Controllers\ItemController@delete');
 
 
 
+Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@show');
+
+Route::post('/category', 'App\Http\Controllers\CategoryController@create');
+
+Route::put('/category', 'App\Http\Controllers\CategoryController@update');
+
+Route::delete('/category', 'App\Http\Controllers\CategoryController@delete');
+
+
+
 Route::get('/order', 'App\Http\Controllers\OrderListController@show');
 
 Route::post('/order', 'App\Http\Controllers\OrderListController@store');
