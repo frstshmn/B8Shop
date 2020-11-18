@@ -46,9 +46,9 @@ Route::get('/order/{id}', 'App\Http\Controllers\OrderListController@show');
 
 Route::post('/order', 'App\Http\Controllers\OrderController@create');
 
-Route::put('/order', 'App\Http\Controllers\OrderListController@edit');
+Route::put('/order', 'App\Http\Controllers\OrderListController@update');
 
-Route::delete('/order', 'App\Http\Controllers\OrderListController@destroy');
+Route::delete('/order', 'App\Http\Controllers\OrderListController@delete');
 
 
 
