@@ -29,3 +29,17 @@ function showUpdateItemModal(id) {
         }
     });
 }
+
+function showUpdateCatModal(id) {
+    $('#editCatModal').modal('show');
+    $.ajax({
+        type: "GET",
+        url: "category/" + id,
+        success: function(response) {
+            cat = JSON.parse(response);
+            $('#cat_id').val(cat.id);
+            $('#cat_id_delete').val(cat.id);
+            $('#cat_title').val(cat.title);
+        }
+    });
+}

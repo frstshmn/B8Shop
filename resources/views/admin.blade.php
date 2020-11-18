@@ -46,11 +46,6 @@
         <div class="tab-content">
             <div class="tab-pane fade active" id="items">
                 <div class="row">
-                    <div class="col-12">
-
-                    </div>
-                </div>
-                <div class="row">
                     <table class="table">
                         <thead>
                             <tr>
@@ -93,7 +88,31 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="categories">
-                categories
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <button class="btn btn-success btn-block" data-toggle="modal"
+                                        data-target="#createCatModal">+ Add new item</button>
+                                </td>
+
+                            </tr>
+                            @foreach ($categories as $category)
+                                <tr class="clickable-row" onclick="showUpdateCatModal({{ $category->id }})">
+                                    <th scope="row">{{ $category->id }}</th>
+                                    <td class="text-nowrap font-weight-bold">{{ $category->title }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade" id="orders">
                 orders
@@ -156,7 +175,7 @@
 
                     </div>
                     <div class="modal-footer text-center">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-success">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -173,11 +192,12 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="/item/" method="POST" name="editItem">
-                    @csrf
-                    @method('PUT')
-                    <input type="text" name="id" id="item_id" value="" required hidden>
+
                     <div class="modal-body">
+                        <form action="/item/" method="POST" name="editItem">
+                        @csrf
+                        @method('PUT')
+                        <input type="text" name="id" id="item_id" value="" required hidden>
                         <div class="row">
                             <div class="col-md-6 col-xs-12">
                                 {{-- <div class="form-group">
@@ -220,14 +240,84 @@
                     </div>
                     <div class="modal-footer text-center">
                         <button type="submit" class="btn btn-success" >Save changes</button>
+
+                        </form>
+                        <form action="/item" method="POST" name="deleteItem">
+                            @csrf
+                            @method('delete')
+                            <input type="text" name="id" id="item_id_delete" value="" required hidden>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="createCatModal" tabindex="-1" role="dialog" aria-labelledby="createCatModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createCatModalLabel">Create new item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/category" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="title" placeholder="Title" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="submit" class="btn btn-success">Save changes</button>
                     </div>
                 </form>
-                <form action="/item" method="POST" name="deleteItem">
-                    @csrf
-                    @method('delete')
-                    <input type="text" name="id" id="item_id_delete" value="" required hidden>
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editCatModal" tabindex="-1" role="dialog" aria-labelledby="editCatModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCatModalLabel">Edit category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <div class="modal-body">
+                        <form action="/category" method="POST" name="editCat">
+                            @csrf
+                            @method('PUT')
+                            <input type="text" name="id" id="cat_id" value="" required hidden>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="title" id="cat_title" placeholder="Title" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="submit" class="btn btn-success" >Save changes</button>
+
+                        </form>
+
+                        <form action="/category" method="POST">
+                            @csrf
+                            @method('delete')
+                            <input type="text" name="id" id="cat_id_delete" value="" required hidden>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
             </div>
         </div>
     </div>
@@ -243,7 +333,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <!-- User scripts -->s
+    <!-- User scripts -->
     <script src="{{ URL::asset('js/admin.js') }}"></script>
 </body>
 
