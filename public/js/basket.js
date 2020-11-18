@@ -16,7 +16,7 @@ function deleteItem(id) {
     });
     $.ajax({
         type: "DELETE",
-        url: "/order/" + id,
+        url: "/orderlist/" + id,
         success: function(response) {
             location.reload();
         },
@@ -34,7 +34,7 @@ function qtyIncrease(id) {
     });
     $.ajax({
         type: "PUT",
-        url: "/order/increase/" + id,
+        url: "/orderlist/increase/" + id,
         success: function(response) {
             location.reload();
         },
@@ -52,7 +52,7 @@ function qtyDecrease(id) {
     });
     $.ajax({
         type: "PUT",
-        url: "/order/decrease/" + id,
+        url: "/orderlist/decrease/" + id,
         success: function(response) {
             location.reload();
         },

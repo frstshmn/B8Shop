@@ -42,21 +42,27 @@ Route::delete('/category', 'App\Http\Controllers\CategoryController@delete');
 
 
 
-Route::get('/order', 'App\Http\Controllers\OrderListController@show');
+Route::get('/order/{id}', 'App\Http\Controllers\OrderListController@show');
 
-Route::post('/order', 'App\Http\Controllers\OrderListController@store');
+Route::post('/order', 'App\Http\Controllers\OrderController@create');
 
-Route::put('/order/{operation}/{id}', 'App\Http\Controllers\OrderListController@edit');
+Route::put('/order', 'App\Http\Controllers\OrderListController@edit');
 
-Route::delete('/order/{id}', 'App\Http\Controllers\OrderListController@destroy');
+Route::delete('/order', 'App\Http\Controllers\OrderListController@destroy');
 
 
 
-Route::get('/checkout', function (){
-    return view('checkout');
-});
+Route::get('/orderlist', 'App\Http\Controllers\OrderListController@show');
 
-Route::post('/checkout', 'App\Http\Controllers\OrderController@create');
+Route::post('/orderlist', 'App\Http\Controllers\OrderListController@store');
+
+Route::put('/orderlist/{operation}/{id}', 'App\Http\Controllers\OrderListController@edit');
+
+Route::delete('/orderlist/{id}', 'App\Http\Controllers\OrderListController@destroy');
+
+
+
+Route::get('/checkout', function (){ return view('checkout'); });
 
 
 

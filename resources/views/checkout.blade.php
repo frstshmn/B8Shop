@@ -11,7 +11,7 @@
             <span class="fs-22 font-weight-bold">Summary</span>
         </div>
     </div>
-    <form action="/checkout" method="POST">
+    <form action="/order" method="POST">
         @csrf
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">

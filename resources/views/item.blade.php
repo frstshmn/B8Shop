@@ -19,7 +19,7 @@
             <p class="card-price fs-30">${{ $item->price }}</p>
             <p class="font-weight-bold fs-14">{{ $item->description }}</p>
 
-            <form method="POST" action="/order">
+            <form method="POST" action="/orderlist">
                 @csrf
                 <input type="text" name="item_id" value="{{ $item->id }}" hidden />
                 <input type="text" name="price" value="{{ $item->price }}" hidden />
