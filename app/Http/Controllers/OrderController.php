@@ -17,6 +17,35 @@ class OrderController extends Controller
     */
     public function show($id){
         $order = Order::where('id', $id)->first();
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.novaposhta.ua/v2.0/json/",
+            CURLOPT_RETURNTRANSFER => True,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => '{"apiKey": "520ff1e4f5d575478b353c9fbc7918fe","modelName": "Address", "calledMethod": "getCities", "methodProperties": {"Ref": "'.$order->city.'"}}',
+            CURLOPT_HTTPHEADER => array("content-type: application/json"),
+        ));
+        $response = json_decode(curl_exec($curl));
+        $order->city = $response->data[0]->Description;
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.novaposhta.ua/v2.0/json/",
+            CURLOPT_RETURNTRANSFER => True,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => '{"apiKey": "520ff1e4f5d575478b353c9fbc7918fe","modelName": "AddressGeneral",
+                "calledMethod": "getWarehouses",
+                "methodProperties": {
+                    "Ref": "'.$order->warehouse.'"
+                }}',
+            CURLOPT_HTTPHEADER => array("content-type: application/json"),
+        ));
+        $response = json_decode(curl_exec($curl));
+        $order->warehouse = $response->data[0]->Description;
         return json_encode($order);
     }
 
@@ -61,17 +90,7 @@ class OrderController extends Controller
     */
     public function update(Request $request){
         $order = Order::where('id', $request->id)->first();
-        $order->first_name = $request->first_name;
-        $order->last_name = $request->last_name;
-        $order->email = $request->email;
-        $order->phone = $request->phone;
-        $order->country = $request->country;
-        $order->city = $request->city;
-        $order->shipping = $request->shipping;
-        $order->warehouse = $request->warehouse;
-        $order->comments = $request->comments;
-        $order->payment_method = $request->payment_method;
-        $order->status = "Pending";
+        $order->status = $request->status;
 
         $order->save();
     }

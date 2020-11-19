@@ -115,7 +115,90 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="orders">
-                orders
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer Info</th>
+                                <th>Order List</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($orders as $order)
+                                <tr class="clickable-row" onclick="showUpdateOrderModal({{ $order->id }})">
+                                    <th scope="row">{{ $order->id }}</th>
+                                    <td>
+                                        <p class="font-weight-bold">{{ $order->last_name }} {{ $order->first_name }}</p>
+
+                                            @if ($order->status == 'pending')
+                                                <span>Status: <span class="text-danger font-weight-bold text-capitalize">{{$order->status}}</span></span>
+                                            @else
+                                                <span>Status: <span class="text-success font-weight-bold text-capitalize">{{$order->status}}</span></span>
+                                            @endif
+                                        <br>
+                                        <p>Delivery info:</p>
+                                        <ul type="none">
+                                            <li><p class="small">{{ $order->country }}, {{ $order->city }}</p></li>
+                                            <li><p class="small">{{ $order->warehouse }}</p></li>
+                                        </ul>
+                                        <p>Contact info:</p>
+                                        <ul type="none">
+                                            <li><p class="small">Email: {{ $order->email }}</p></li>
+                                            <li><p class="small">Phone: {{ $order->phone }}</p></li>
+                                        </ul>
+                                        <p>Comments/Questions:</p>
+                                        <p class="small">{{ $order->comments }}</p>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Title</th>
+                                                            <th>Size</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+                                                            <th>Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @php
+                                                            $total = 0;
+                                                        @endphp
+                                                        @foreach ($order->order_lists as $order_list)
+                                                            <tr>
+                                                                <td class="text-nowrap small">{{ $order_list->item->title }}</td>
+                                                                <td class="text-nowrap small">{{ $order_list->size->title }}</td>
+                                                                <td class="text-nowrap small">{{ $order_list->quantity }}</td>
+                                                                <td class="text-nowrap small">${{ $order_list->price }}</td>
+                                                                <td class="text-nowrap small">${{ $order_list->price * $order_list->quantity }}</td>
+                                                            </tr>
+                                                            @php
+                                                                $total += $order_list->price * $order_list->quantity;
+                                                            @endphp
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                                <p>Payment info:</p>
+                                                <p class="small">Payment method: <span class="text-capitalize font-weight-bold">{{ $order->payment_method }}</span></p>
+                                                <p class="small">Promocode:
+                                                    @if ($order->promocode_id == NULL)
+                                                        <span class="font-weight-bold text-muted">None</span>
+                                                    @else
+                                                        <span class="font-weight-bold">{{ $order->promocode_id }}</span>
+                                                    @endif
+                                                </p>
+                                                <h3 class="font-weight-bold">Total: <span class="color-primary">${{ $total }}</span></h3>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -318,6 +401,43 @@
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editOrderModalLabel">Edit category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/order" method="POST" name="editOrder">
+                    <div class="modal-body">
+                        @csrf
+                        @method('PUT')
+                        <input type="text" name="id" id="order_id" value="" required hidden>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="status" id="order_status" required>
+                                        <option value="closed">Closed</option>
+                                        <option value="aborted">Aborted</option>
+                                        <option value="paid">Paid</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="sent">Sent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="submit" class="btn btn-success">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

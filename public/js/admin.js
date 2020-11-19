@@ -43,3 +43,16 @@ function showUpdateCatModal(id) {
         }
     });
 }
+
+function showUpdateOrderModal(id) {
+    $('#editOrderModal').modal('show');
+    $.ajax({
+        type: "GET",
+        url: "order/" + id,
+        success: function(response) {
+            order = JSON.parse(response);
+            $('#order_id').val(order.id);
+            $('#order_status').val(order.status);
+        }
+    });
+}
