@@ -95,7 +95,7 @@
                     <p class="d-inline-block float-right color-primary fs-18" id="total_order_price"></p>
                 </div>
 
-                <div class="button text-uppercase p-3 text-center fs-20">Checkout</div>
+                <a href="/checkout"><div class="button text-uppercase p-3 text-center fs-20">Checkout</div></a>
             </div>
         </div>
     </div>
