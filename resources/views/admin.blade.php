@@ -20,12 +20,12 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto nav" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#items">Items</a>
+                    <a class="nav-link" data-toggle="tab" href="#items" role="tab">Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#categories">Categories</a>
+                    <a class="nav-link" data-toggle="tab" href="#categories" role="tab">Categories</a>
                 </li>
 
                 <a class="navbar-brand">
@@ -33,7 +33,7 @@
                 </a>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#orders">Orders</a>
+                    <a class="nav-link" data-toggle="tab" href="#orders" role="tab">Orders</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-danger" href="#">Exit</a>
@@ -44,7 +44,7 @@
 
     <div class="container">
         <div class="tab-content">
-            <div class="tab-pane fade active" id="items">
+            <div class="tab-pane fade" id="items" role="tabpanel">
                 <div class="row">
                     <table class="table">
                         <thead>
@@ -87,7 +87,7 @@
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade" id="categories">
+            <div class="tab-pane fade" id="categories" role="tabpanel">
                 <div class="row">
                     <table class="table">
                         <thead>
@@ -114,7 +114,7 @@
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade" id="orders">
+            <div class="tab-pane fade active show" id="orders" role="tabpanel">
                 <div class="row">
                     <table class="table">
                         <thead>
