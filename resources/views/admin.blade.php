@@ -36,7 +36,10 @@
                     <a class="nav-link" data-toggle="tab" href="#orders" role="tab">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="#">Exit</a>
+                    <a class="nav-link text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Exit</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>
@@ -102,7 +105,6 @@
                                     <button class="btn btn-success btn-block" data-toggle="modal"
                                         data-target="#createCatModal">+ Add new item</button>
                                 </td>
-
                             </tr>
                             @foreach ($categories as $category)
                                 <tr class="clickable-row" onclick="showUpdateCatModal({{ $category->id }})">
