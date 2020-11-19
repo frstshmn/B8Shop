@@ -108,3 +108,7 @@ Route::get('/admin', function () {
         'order_lists' => $order_lists
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
