@@ -45,6 +45,17 @@ class ItemController extends Controller
     */
     public function create(Request $request){
 
+        $request->validate([
+            'title' => 'bail|required|unique:items|max:255',
+            'category' => 'required',
+            'description' => 'required',
+            'consist' => 'required',
+            'caring' => 'required',
+            'price' => 'required',
+            'photo' => 'required',
+            'size' => 'required'
+        ]);
+
         $item = new Item();
         $item->title = $request->title;
         $item->category_id = $request->category;
@@ -94,6 +105,17 @@ class ItemController extends Controller
     */
     public function update(Request $request){
 
+        $request->validate([
+            'title' => 'bail|required|unique:items|max:255',
+            'category_id' => 'required',
+            'description' => 'required',
+            'consist' => 'required',
+            'caring' => 'required',
+            'price' => 'required',
+            //'photo' => 'required',
+            'size' => 'required'
+        ]);
+
         $item = Item::where('id', $request->id)->first();
         $item->title = $request->title;
         $item->category_id = $request->category;
@@ -129,6 +151,10 @@ class ItemController extends Controller
      * @return JSON - json encoded item data
     */
     public function delete(Request $request){
+
+        $request->validate([
+            'id' => 'required',
+        ]);
 
         $item = Item::where('id', $request->id)->first();
 

@@ -205,6 +205,17 @@
         </div>
     </div>
 
+    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+    @endif
+
+
     <!-- Modals -->
     <div class="modal fade" id="createItemModal" tabindex="-1" role="dialog" aria-labelledby="createItemModalLabel"
         aria-hidden="true">
@@ -217,6 +228,7 @@
                     </button>
                 </div>
                 <form action="/item" method="POST" enctype="multipart/form-data">
+
                     @csrf
                     <div class="modal-body">
                         <div class="row">
