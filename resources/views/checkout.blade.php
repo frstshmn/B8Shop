@@ -116,6 +116,15 @@
                             <p class="font-weight-normal fs-9">I have read and agree to the website terms and conditions *</p>
                         </span>
                     </label>
+                    @if ($errors->any())
+                        <div class="alert alert-danger font-weight-normal fs-9">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <button type="submit" class="button text-uppercase p-3 text-center fs-20">Checkout</button>
                 </div>
             </div>

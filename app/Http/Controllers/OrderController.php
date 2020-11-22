@@ -55,6 +55,19 @@ class OrderController extends Controller
      * @return JSON - json encoded item data
     */
     public function create(Request $request){
+        $request->validate([
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'shipping' => 'required',
+            'warehouse' => 'required',
+            'comments' => 'required',
+            'payment_method' => 'required',
+        ]);
+
         $order = new Order;
         $order->first_name = $request->first_name;
         $order->last_name = $request->last_name;
