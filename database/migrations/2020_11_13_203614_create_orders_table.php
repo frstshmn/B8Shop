@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('city');
             $table->string('shipping');
             $table->string('warehouse');
-            $table->string('comments');
+            $table->string('comments')->nullable();
             $table->string('payment_method');
             $table->integer('promocode_id')->nullable();
             $table->string('status')->default('Pending');
