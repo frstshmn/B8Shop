@@ -32,6 +32,9 @@ Route::post('/order', 'App\Http\Controllers\OrderController@create');
 
 
 Route::get('/orderlist', 'App\Http\Controllers\OrderListController@show');
+Route::post('/orderlist', 'App\Http\Controllers\OrderListController@store');
+Route::put('/orderlist/{operation}/{id}', 'App\Http\Controllers\OrderListController@edit');
+Route::delete('/orderlist/{id}', 'App\Http\Controllers\OrderListController@destroy');
 
 
 
@@ -40,10 +43,6 @@ Route::get('/checkout', function (){ return view('checkout'); });
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-
-    Route::post('/orderlist', 'App\Http\Controllers\OrderListController@store');
-    Route::put('/orderlist/{operation}/{id}', 'App\Http\Controllers\OrderListController@edit');
-    Route::delete('/orderlist/{id}', 'App\Http\Controllers\OrderListController@destroy');
 
     Route::get('/order/{id}', 'App\Http\Controllers\OrderController@show');
     Route::put('/order', 'App\Http\Controllers\OrderController@update');
