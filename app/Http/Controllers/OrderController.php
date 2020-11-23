@@ -64,7 +64,7 @@ class OrderController extends Controller
             'city' => 'required',
             'shipping' => 'required',
             'warehouse' => 'required',
-            'comments' => 'required',
+            'comments' => 'max:1024',
             'payment_method' => 'required',
         ]);
 
@@ -79,7 +79,7 @@ class OrderController extends Controller
         $order->warehouse = $request->warehouse;
         $order->comments = $request->comments;
         $order->payment_method = $request->payment_method;
-        $order->status = "Pending";
+        $order->status = "pending";
 
         $order->save();
 
