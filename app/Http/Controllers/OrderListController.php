@@ -72,7 +72,7 @@ class OrderListController extends Controller
 
         Cookie::queue('basket', json_encode($basket), $storetime);
 
-        return response()->json(['success' => 'Item added to basket'], 200);
+        return redirect()->back()->with('success', 'Item added to basket');
     }
 
     public function update(){

@@ -3,6 +3,18 @@
 @section('title', $item->title)
 
 @section('content')
+    @if (\Session::has('success'))
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{!! \Session::get('success') !!}</strong>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
             <img class="w-100" id='mainPhoto' src="{{ URL::asset($item->photos[0]->photo_link) }}" alt="{{ $item->title }}">
