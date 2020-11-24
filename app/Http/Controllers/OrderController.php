@@ -64,7 +64,7 @@ class OrderController extends Controller
             'city' => 'required',
             'shipping' => 'required',
             'warehouse' => 'required',
-            'comments' => 'max:1024',
+            'comments' => 'max:512',
             'payment_method' => 'required',
         ]);
 
@@ -94,6 +94,8 @@ class OrderController extends Controller
             $order_list->price = $basket_item->price;
             $order_list->save();
         }
+
+        return redirect()->back()->with('success', 'Your order has been created');
     }
 
     /** Update existing order
@@ -102,10 +104,16 @@ class OrderController extends Controller
      * @return JSON - json encoded item data
     */
     public function update(Request $request){
+        $request->validate([
+            'status' => 'required|max:255|in:["closed","pending","sent","aborted","paid","undefined"]',
+        ]);
+
         $order = Order::where('id', $request->id)->first();
         $order->status = $request->status;
 
         $order->save();
+
+        return redirect()->back()->with('success', 'Order status updated');
     }
 
     /** Delete particular order
@@ -114,7 +122,13 @@ class OrderController extends Controller
      * @return JSON - json encoded item data
     */
     public function delete(Request $request){
+
+        $request->validate([
+            'id' => 'required',
+        ]);
+
         $order = Order::where('id', $request->id)->first();
+
         $order->delete();
     }
 }
