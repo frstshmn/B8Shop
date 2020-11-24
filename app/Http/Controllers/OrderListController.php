@@ -37,10 +37,6 @@ class OrderListController extends Controller
         ]);
     }
 
-    public function create(){
-
-    }
-
     /** Adding new item to basket
      *
      * @method POST
@@ -73,10 +69,6 @@ class OrderListController extends Controller
         Cookie::queue('basket', json_encode($basket), $storetime);
 
         return redirect()->back()->with('success', 'Item added to basket');
-    }
-
-    public function update(){
-
     }
 
 
