@@ -46,6 +46,34 @@
     </nav>
 
     <div class="container">
+        @if ($errors->any())
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if (\Session::has('success'))
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{!! \Session::get('success') !!}</strong>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="tab-content">
             <div class="tab-pane fade" id="items" role="tabpanel">
                 <div class="row">
@@ -205,15 +233,7 @@
         </div>
     </div>
 
-    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-    @endif
+
 
 
     <!-- Modals -->
