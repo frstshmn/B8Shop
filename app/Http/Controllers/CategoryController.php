@@ -24,6 +24,10 @@ class CategoryController extends Controller
      * @return JSON - json encoded item data
     */
     public function create(Request $request){
+        $request->validate([
+            'title' => 'required|max:255',
+        ]);
+
         $cat = new Category();
 
         $cat->title = $request->title;
@@ -37,6 +41,10 @@ class CategoryController extends Controller
      * @return JSON - json encoded item data
     */
     public function update(Request $request){
+        $request->validate([
+            'title' => 'required|max:255',
+        ]);
+
         $cat = Category::where('id', $request->id)->first();
 
         $cat->title = $request->title;
