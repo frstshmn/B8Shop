@@ -1,8 +1,47 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+:active,
+ :hover,
+ :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.custom-radio {
+    &.text {
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    & input[type='radio'] {
+        visibility: hidden;
+    }
+    & input[type='radio']:after {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        position: relative;
+        background-color: white;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        box-shadow: 0 0 0 1px black;
+        border: 1px solid white;
+    }
+    & input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        position: relative;
+        background-color: var(--primary-color);
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        box-shadow: 0 0 0 1px black;
+        border: 2px solid white;
+    }
+}
