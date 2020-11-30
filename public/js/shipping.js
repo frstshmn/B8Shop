@@ -1,6 +1,6 @@
-// $(document).ready(function() {
-//     $("#city").select2();
-// });
+$(document).ready(function() {
+    $("#city").select2();
+});
 
 $("#shipping").change(function(e) {
     e.preventDefault();
