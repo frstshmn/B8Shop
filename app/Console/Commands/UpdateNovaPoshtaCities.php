@@ -16,14 +16,14 @@ class UpdateNovaPoshtaCities extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'update-nova-poshta-cities';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Updating a list of cities serving by Nova Poshta';
 
     /**
      * Create a new command instance.
