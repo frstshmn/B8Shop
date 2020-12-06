@@ -72,6 +72,8 @@ class UpdateNovaPoshtaCities extends Command
                     ]);
                 }
             }
+
+            echo "Updated ".count($cities['data'])." cities \n";
         }
     }
 }
