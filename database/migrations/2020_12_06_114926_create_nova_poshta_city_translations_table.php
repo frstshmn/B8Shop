@@ -18,6 +18,7 @@ class CreateNovaPoshtaCityTranslationsTable extends Migration
             $table->string('nova_poshta_city_id');
             $table->integer('lang_id');
             $table->string('name');
+            $table->timestamps();
         });
     }
 

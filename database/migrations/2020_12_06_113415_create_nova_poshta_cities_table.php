@@ -17,6 +17,7 @@ class CreateNovaPoshtaCitiesTable extends Migration
             $table->id();
             $table->string('ref');
             $table->integer('sort_order');
+            $table->timestamps();
         });
     }
 
