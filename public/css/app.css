@@ -124,20 +124,26 @@ h1 {
   color: #c3191e;
 }
 
+.select2-container .select2-selection--single {
+  height: 50px !important;
+  padding-left: 10px !important;
+  line-height: 50px !important;
+}
+
 .select2-selection .select2-selection--single {
-  height: 50px;
-  line-height: 50px;
+  height: 50px !important;
+  line-height: 50px !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
   color: #444;
-  line-height: 50px;
+  line-height: 50px !important;
   font-weight: bold;
   font-size: 14px;
 }
 
 .select2-selection__arrow {
-  height: 50px;
+  height: 50px !important;
 }
 
 .active a.nav-link {
