@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\ItemSize;
 use App\Models\Category;
+use App\Models\NovaPoshtaCity;
+use App\Models\NovaPoshtaCityTranslation;
 use App\Models\Order;
 use App\Models\OrderList;
 
@@ -38,7 +40,12 @@ Route::delete('/orderlist/{id}', 'App\Http\Controllers\OrderListController@destr
 
 
 
-Route::get('/checkout', function (){ return view('checkout'); });
+Route::get('/checkout', function (){
+    $cities = NovaPoshtaCityTranslation::where('lang_id', 1)->get();
+    return view('checkout', [
+        'cities' => $cities,
+    ]);
+});
 
 Auth::routes();
 
@@ -64,30 +71,6 @@ Route::group(['middleware' => 'auth'], function () {
         $item_sizes = ItemSize::get();
         $categories = Category::get();
         $orders = Order::get();
-        foreach ($orders as $order) {
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://api.novaposhta.ua/v2.0/json/",
-                CURLOPT_RETURNTRANSFER => True,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_SSL_VERIFYHOST => 0,
-                CURLOPT_SSL_VERIFYPEER => 0,
-                CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_POSTFIELDS => '{"apiKey": "520ff1e4f5d575478b353c9fbc7918fe","modelName": "Address", "calledMethod": "getCities", "methodProperties": {"Ref": "'.$order->city.'"}}',
-                CURLOPT_HTTPHEADER => array("content-type: application/json"),
-            ));
-            $response = json_decode(curl_exec($curl));
-            $order->city = $response->data[0]->Description;
-            curl_setopt_array($curl, array(
-                CURLOPT_POSTFIELDS => '{"apiKey": "520ff1e4f5d575478b353c9fbc7918fe","modelName": "AddressGeneral",
-                    "calledMethod": "getWarehouses",
-                    "methodProperties": {
-                        "Ref": "'.$order->warehouse.'"
-                    }}'
-            ));
-            $response = json_decode(curl_exec($curl));
-            $order->warehouse = $response->data[0]->Description;
-        }
         $order_lists = OrderList::get();
 
         return view('admin',[

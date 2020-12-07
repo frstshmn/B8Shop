@@ -35,7 +35,6 @@
                             <label for="shipping" class="m-1 fs-12">Shipping</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="shipping" id="shipping" required>
                                 <option value="nova_poshta">Nova Poshta</option>
-                                <option value="ukr_poshta">UkrPoshta</option>
                             </select>
                         </div>
                     </div>
@@ -51,7 +50,9 @@
                         <div class="form-group">
                             <label for="city" class="m-1 fs-12">City</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" required>
-
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->nova_poshta_city_id }}">{{ $city->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
