@@ -2,32 +2,32 @@ $(document).ready(function() {
     $("#city").select2();
 });
 
-$("#shipping").change(function(e) {
-    e.preventDefault();
-    if ($(this).val() == 'nova_poshta') {
-        var data = JSON.stringify({
-            "modelName": "Address",
-            "calledMethod": "getCities",
-            "apiKey": "520ff1e4f5d575478b353c9fbc7918fe"
-        });
-        $.ajax({
-            async: true,
-            crossDomain: true,
-            type: "POST",
-            url: "https://api.novaposhta.ua/v2.0/json/",
-            data: data,
-            headers: {
-                "content-type": "application/json"
-            },
-            success: function(response) {
-                $("#city").empty();
-                $.each(response.data, function(index, value) {
-                    $("#city").append("<option value=" + value.Ref + ">" + value.Description + "</option>")
-                })
-            }
-        });
-    }
-});
+// $("#shipping").change(function(e) {
+//     e.preventDefault();
+//     if ($(this).val() == 'nova_poshta') {
+//         var data = JSON.stringify({
+//             "modelName": "Address",
+//             "calledMethod": "getCities",
+//             "apiKey": "520ff1e4f5d575478b353c9fbc7918fe"
+//         });
+//         $.ajax({
+//             async: true,
+//             crossDomain: true,
+//             type: "POST",
+//             url: "https://api.novaposhta.ua/v2.0/json/",
+//             data: data,
+//             headers: {
+//                 "content-type": "application/json"
+//             },
+//             success: function(response) {
+//                 $("#city").empty();
+//                 $.each(response.data, function(index, value) {
+//                     $("#city").append("<option value=" + value.Ref + ">" + value.Description + "</option>")
+//                 })
+//             }
+//         });
+//     }
+// });
 
 $("#city").change(function(e) {
     e.preventDefault();

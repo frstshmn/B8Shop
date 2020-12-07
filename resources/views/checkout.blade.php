@@ -1,4 +1,4 @@
-@extends('layout')
+ @extends('layout')
 
 @section('title', 'Checkout')
 
@@ -51,7 +51,7 @@
                             <label for="city" class="m-1 fs-12">City</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" required>
                                 @foreach ($cities as $city)
-                                    <option value="{{ $city->nova_poshta_city_id }}">{{ $city->name}}</option>
+                                    <option value="{{ $city->city_refs->ref }}">{{ $city->name }}</option>
                                 @endforeach
                             </select>
                         </div>
