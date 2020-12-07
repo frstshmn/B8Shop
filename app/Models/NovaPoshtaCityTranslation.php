@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NovaPoshtaCityTranslation extends Model
 {
+    protected $primaryKey = 'nova_poshta_city_id';
     protected $guarded = [];
     use HasFactory;
 }

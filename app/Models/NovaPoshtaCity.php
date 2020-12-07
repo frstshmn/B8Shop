@@ -9,4 +9,10 @@ class NovaPoshtaCity extends Model
 {
     protected $guarded = [];
     use HasFactory;
+
+    public function description(){
+
+        return $this->hasMany('App\Models\NovaPoshtaCityTranslation');
+
+    }
 }
