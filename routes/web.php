@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\ItemSize;
 use App\Models\Category;
-use App\Models\NovaPoshtaCity;
 use App\Models\NovaPoshtaCityTranslation;
 use App\Models\Order;
 use App\Models\OrderList;
@@ -30,6 +29,10 @@ Route::get('/item/{id}', 'App\Http\Controllers\ItemController@show');
 
 
 Route::post('/order', 'App\Http\Controllers\OrderController@create');
+
+
+
+Route::get('/promocode/check/{promocode}', 'App\Http\Controllers\PromocodeController@check');
 
 
 
@@ -64,6 +67,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/item', 'App\Http\Controllers\ItemController@create');
     Route::put('/item', 'App\Http\Controllers\ItemController@update');
     Route::delete('/item', 'App\Http\Controllers\ItemController@delete');
+
+    Route::get('/promocode/{id}', 'App\Http\Controllers\PromocodeController@show');
+    Route::post('/promocode', 'App\Http\Controllers\PromocodeController@create');
+    Route::put('/promocode', 'App\Http\Controllers\PromocodeController@update');
+    Route::delete('/promocode', 'App\Http\Controllers\PromocodeController@delete');
 
     Route::get('/admin', function () {
 
