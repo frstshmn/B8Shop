@@ -73,14 +73,18 @@
                 <div class="card p-4 checkout-sum fs-14 font-weight-bold mt-3">
 
                     <div class="input-group">
-                        <input type="text" class="form-control fs-14 font-weight-bold promocode"
+                        <input type="text" id="promocode" class="form-control fs-14 font-weight-bold promocode"
                             placeholder="Gift card or discount code">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary fs-14 font-weight-bold promocode"
-                                type="button">Apply</button>
+                                type="button" onclick="checkDiscount()">Apply</button>
                         </div>
                     </div>
 
+                    <div>
+                        <p class="d-inline-block">Discount</p>
+                        <p class="d-inline-block float-right color-primary fs-18" id="discount">0%</p>
+                    </div>
                     <div>
                         <p class="d-inline-block">Subtotal</p>
                         <p class="d-inline-block float-right color-primary fs-18" id="subtotal_order_price">$0</p>
@@ -137,4 +141,5 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script src="{{ URL::asset('js/shipping.js') }}"></script>
+    <script src="{{ URL::asset('js/discount.js') }}"></script>
 @endsection
