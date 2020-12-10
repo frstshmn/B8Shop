@@ -50,9 +50,9 @@
                         <div class="form-group">
                             <label for="city" class="m-1 fs-12">City</label>
                             <select class="custom-select form-control fs-14 font-weight-bold p-2 border-grey checkout-input" name="city" id="city" required>
-                                @foreach ($cities as $city)
+                                {{-- @foreach ($cities as $city)
                                     <option value="{{ $city->city_refs->ref }}">{{ $city->name }}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                         <div class="form-group">
@@ -96,7 +96,7 @@
                     <hr class="w-100">
                     <div>
                         <p class="d-inline-block">Total</p>
-                        <p class="d-inline-block float-right color-primary fs-18" id="total_order_price"></p>
+                        <p class="d-inline-block float-right color-primary fs-18" id="total_order_price">250</p><span class="d-inline-block float-right color-primary fs-18">$</span>
                     </div>
 
                     <label class="custom-radio">
