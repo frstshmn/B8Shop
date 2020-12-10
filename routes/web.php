@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\ItemSize;
@@ -44,9 +45,11 @@ Route::delete('/orderlist/{id}', 'App\Http\Controllers\OrderListController@destr
 
 
 Route::get('/checkout', function (){
+    $basket = json_decode(Cookie::get('basket'), true);
     $cities = NovaPoshtaCityTranslation::where('lang_id', 1)->get();
     return view('checkout', [
         'cities' => $cities,
+        'basket' => $basket
     ]);
 });
 

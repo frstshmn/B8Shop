@@ -96,7 +96,15 @@
                     <hr class="w-100">
                     <div>
                         <p class="d-inline-block">Total</p>
-                        <p class="d-inline-block float-right color-primary fs-18" id="total_order_price">250</p><span class="d-inline-block float-right color-primary fs-18">$</span>
+                        <p class="d-inline-block float-right color-primary fs-18" id="total_order_price">
+                        @php
+                            $total=0;
+                            foreach ($basket as $item) {
+                                $total+= $item['price']*$item['quantity'];
+                            }
+                            echo $total;
+                        @endphp
+                        </p><span class="d-inline-block float-right color-primary fs-18">$</span>
                     </div>
 
                     <label class="custom-radio">
